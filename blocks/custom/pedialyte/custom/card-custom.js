@@ -1,27 +1,24 @@
-import { createOptimizedPicture } from "../../scripts/aem.js";
+import { createOptimizedPicture } from '../../../../scripts/aem.js';
 
 export default function decorate(block) {
   /* change to ul, li */
-  const outerDiv = document.createElement("div");
+  const outerDiv = document.createElement('div');
   [...block.children].forEach((row) => {
-    const innerDiv = document.createElement("div");
-    innerDiv.className = "card";
+    const innerDiv = document.createElement('div');
+    innerDiv.className = 'card';
     while (row.firstElementChild) innerDiv.append(row.firstElementChild);
     [...innerDiv.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector("picture"))
-        div.className = "card-image";
-      else div.className = "card-body";
+      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'card-image';
+      else div.className = 'card-body';
     });
     outerDiv.append(innerDiv);
   });
 
   outerDiv
-    .querySelectorAll("img")
-    .forEach((img) =>
-      img
-        .closest("picture")
-        .replaceWith(createOptimizedPicture(img.src, img.alt, false))
-    );
-  block.textContent = "";
+    .querySelectorAll('img')
+    .forEach((img) => img
+      .closest('picture')
+      .replaceWith(createOptimizedPicture(img.src, img.alt, false)));
+  block.textContent = '';
   block.append(outerDiv);
 }
