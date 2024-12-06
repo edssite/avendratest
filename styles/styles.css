@@ -12,6 +12,9 @@
 
  @import url('../blocks/custom/insurance-cards.css');
  @import url('../blocks/custom/pepsi/custom/*');
+ @import url('../blocks/custom/pedialyte/custom/card-custom.css');
+ @import url('../blocks/custom/four-seasons/custom/styles.css');
+ @import url('../blocks/custom/four-seasons/custom/anchor-links.css');
 :root {
   /* colors */
   --background-color: white;
@@ -82,6 +85,7 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  padding: 2rem;
 }
 
 body.appear {
