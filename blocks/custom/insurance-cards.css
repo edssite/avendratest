@@ -1,5 +1,10 @@
-.insurance-cards > div {
+.insurance-cards {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    max-width: 100% !important;
 }
 
 .insurance-cards-container {
@@ -8,42 +13,64 @@
     align-items: center; /* Vertically center the content if needed */
     background-color: #F0F0EF;
     margin: 0% !important;
+    max-width: 100% !important;
 }
 
 .insurance-cards-wrapper {
     display: flex;
-
     justify-content: center; /* Horizontally center the content */
     align-items: center; /* Vertically center the content if needed */
+    max-width: 100% !important;
 }
 
 .insurance-cards > div > div {
-    margin: 30px;
-   height: 700px;
-   width: 500px;
-   background-color: white;
-   border-radius: 5%;
+    margin: 0.5rem;
+    height: auto;
+    background-color: white;
+    border-radius: 5%;
+}
+
+@media (width >= 768px) {
+    .insurance-cards > div {
+        display: flex;
+        align-items: center;
+    }
+    
+    .insurance-cards > div > div > p {
+        margin: 0;
+    }
+
+    .insurance-cards > div > div > p > a > picture img {
+        width: 15rem;
+    }
+}
+
+@media (width >= 992px) {
+    .insurance-cards > div > div {
+        width: 15rem;
+        margin: 1rem;
+    }
 }
 
 .insurance-cards-wrapper {
     margin: 0% !important;
 }
 
-.insurance-cards > div > div > p > picture img {
-
+.insurance-cards > div > div > p > a > picture img {
+    display: flex;
     border-radius: 5%;
 }
 
 .insurance-cards > div > div p:first-child {
     color: #4B009B;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 0.75rem;
     margin-left: 5%;
     margin-top: 5%;
 }
 .insurance-cards > div > div h3 {
     color: #4B009B;
-    font-size: 28px;
+    font-size: 1.75rem;
     margin-left: 5%;
 }
 
