@@ -127,6 +127,7 @@ pre,
 blockquote {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
+  line-height: 0;
 }
 
 code,
@@ -248,13 +249,7 @@ main > .section:first-of-type {
   }
 }
 
-/* section metadata */
-main .section.light,
-main .section.highlight {
-  background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
-}
+
 
 /* section anguilla hero */
 main .section.banner-anguilla-container {
@@ -579,6 +574,30 @@ main .section.columns-container .columns-wrapper .featured-offer > div h4 a {
   line-height: 1.3em;
   text-transform: uppercase;
   color: #000;
+  margin-right: 2rem;
+  align-items: center;
+  min-width: 130px;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: background-color .3s ease-out, color .3s ease-out, border-color .3s ease-out;
+  transition: background-color .3s ease-out, color .3s ease-out, border-color .3s ease-out;
+}
+
+
+@media(width <= 701px) {
+  #details--------all-offers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media(width <= 400px) {
+  #details--------all-offers {
+    text-align: left !important;
+  }
 }
 
 main .section.spotlight {
@@ -715,7 +734,7 @@ main .section.textbox .default-content-wrapper p {
 main .section.highlight {
   background-color: #fff;
   padding: 0;
-  margin: 0 auto;
+  margin: 0 auto !important;
   max-width: 930px;
 }
 
@@ -743,6 +762,7 @@ main .section.highlight .columns-wrapper .columns div div:nth-child(2) {
   width: auto;
   display: block;
   width: 34%;
+  margin: 2rem;
 }
 
 main .section.highlight .columns-wrapper .columns div:nth-child(2) {
@@ -822,5 +842,27 @@ main .section.highlight .columns-wrapper .columns div div strong::after {
 
   main .section.spotlight::after {
     height: 38%;
+  }
+}
+
+@media (width <= 701px) {
+  main .section.highlight .columns-wrapper .columns div {
+    flex-direction: column;
+  }
+
+  main .section.highlight .columns-wrapper .columns div:nth-child(2) {
+    flex-direction: column;
+  }
+
+  main .section.highlight .columns-wrapper .columns div:nth-child(4) {
+    flex-direction: column;
+  }
+
+  main .section.highlight .columns-wrapper .columns div .columns-img-col {
+    width: 100%;
+  }
+
+  main .section.highlight .columns-wrapper .columns div div:nth-child(2) {
+    width: 100%;
   }
 }

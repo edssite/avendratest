@@ -1,13 +1,13 @@
-.cards-custom {
+.cards-custom > div > div > div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  width: 100%;
+  width: 20rem;
   text-align: center;
   padding: 5px 25px;
 }
 
-.cards-custom > div {
+.cards-custom .block {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -33,14 +33,15 @@
   font-weight: 100;
 }
 
-.cards-custom .button-container > a {
+.cards-custom .button-container > a.button {
   background-color: #211645;
   border-radius: 4px;
   font-weight: normal;
   transition: 0.3s;
+  padding: 5px 30px;
 }
 
-.cards-custom .button-container > a:hover {
+.cards-custom .button-container > a.button:hover  {
   box-shadow: 0 1px 12px rgba(0, 0, 0, 0.662642);
   transition: 0.3s;
 }
@@ -53,11 +54,20 @@
   margin: 0 auto;
 }
 
-main img {
+.cards-custom img {
   max-width: 50%;
-  width: auto;
-  height: auto;
+  width: 5rem;
+  height: 5rem;
 }
 
 .card-body {
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20rem;
+  text-align: center;
+  padding: 5px 25px;
 }
