@@ -12,9 +12,11 @@
 
  @import url('../blocks/custom/insurance-cards.css');
  @import url('../blocks/custom/pepsi/custom/*');
+
  @import url('../blocks/custom/pedialyte/custom/card-custom.css');
  @import url('../blocks/custom/four-seasons/custom/styles.css');
  @import url('../blocks/custom/four-seasons/custom/anchor-links.css');
+
 :root {
   /* colors */
   --background-color: white;
@@ -267,4 +269,13 @@ main .section.light,
 main .section.highlight {
   margin: 0;
   padding: 40px 0;
+}
+
+.footer-details > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-details > div >  div:last-child {
+  background-color: red;
 }
