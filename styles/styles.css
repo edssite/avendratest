@@ -12,6 +12,7 @@
 
  @import url('../blocks/custom/insurance-cards.css');
  @import url('../blocks/custom/pepsi/custom/*');
+ @import url('./formshubspot.css');
 :root {
   /* colors */
   --background-color: white;
@@ -256,4 +257,13 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+.footer-details > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-details > div >  div:last-child {
+  background-color: red;
 }
