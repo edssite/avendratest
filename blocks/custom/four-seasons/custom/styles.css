@@ -1,0 +1,868 @@
+/*
+ * Copyright 2020 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+ :root {
+  /* colors */
+  --background-color: white;
+  --light-color: #f8f8f8;
+  --dark-color: #505050;
+  --text-color: #131313;
+  --link-color: #3b63fb;
+  --link-hover-color: #1d3ecf;
+
+  /* fonts */
+  --body-font-family: roboto, roboto-fallback, sans-serif;
+  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+
+  /* body sizes */
+  --body-font-size-m: 22px;
+  --body-font-size-s: 19px;
+  --body-font-size-xs: 17px;
+
+  /* heading sizes */
+  --heading-font-size-xxl: 55px;
+  --heading-font-size-xl: 44px;
+  --heading-font-size-l: 34px;
+  --heading-font-size-m: 27px;
+  --heading-font-size-s: 24px;
+  --heading-font-size-xs: 22px;
+
+  /* nav height */
+  --nav-height: 64px;
+}
+
+/* fallback fonts */
+@font-face {
+  font-family: roboto-condensed-fallback;
+  size-adjust: 88.82%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: roboto-fallback;
+  size-adjust: 99.529%;
+  src: local('Arial');
+}
+
+@media (width >= 900px) {
+  :root {
+    /* body sizes */
+    --body-font-size-m: 18px;
+    --body-font-size-s: 16px;
+    --body-font-size-xs: 14px;
+
+    /* heading sizes */
+    --heading-font-size-xxl: 45px;
+    --heading-font-size-xl: 36px;
+    --heading-font-size-l: 28px;
+    --heading-font-size-m: 22px;
+    --heading-font-size-s: 20px;
+    --heading-font-size-xs: 18px;
+  }
+}
+
+body {
+  display: none;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+}
+
+body.appear {
+  display: block;
+}
+
+header {
+  height: var(--nav-height);
+}
+
+header .header,
+footer .footer {
+  visibility: hidden;
+}
+
+header .header[data-block-status="loaded"],
+footer .footer[data-block-status="loaded"] {
+  visibility: visible;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  line-height: 1.25;
+  scroll-margin: 40px;
+}
+
+h1 { font-size: var(--heading-font-size-xxl); }
+h2 { font-size: var(--heading-font-size-xl); }
+h3 { font-size: var(--heading-font-size-l); }
+h4 { font-size: var(--heading-font-size-m); }
+h5 { font-size: var(--heading-font-size-s); }
+h6 { font-size: var(--heading-font-size-xs); }
+
+p,
+dl,
+ol,
+ul,
+pre,
+blockquote {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+  line-height: 0;
+}
+
+code,
+pre {
+  font-size: var(--body-font-size-s);
+}
+
+pre {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--light-color);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+main > div {
+  margin: 40px 16px;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+/* links */
+a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* buttons */
+a.button:any-link,
+button {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  margin: 12px 0;
+  border: 2px solid transparent;
+  border-radius: 2.4em;
+  padding: 0.5em 1.2em;
+  font-family: var(--body-font-family);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--link-color);
+  color: var(--background-color);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a.button:hover,
+a.button:focus,
+button:hover,
+button:focus {
+  background-color: var(--link-hover-color);
+  cursor: pointer;
+}
+
+button:disabled,
+button:disabled:hover {
+  background-color: var(--light-color);
+  cursor: unset;
+}
+
+a.button.secondary,
+button.secondary {
+  background-color: unset;
+  border: 2px solid currentcolor;
+  color: var(--text-color);
+}
+
+main img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+}
+
+.icon img {
+  height: 100%;
+  width: 100%;
+}
+
+/* sections */
+main > .section {
+  margin: 40px 0;
+}
+
+main > .section > div {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+main > .section:first-of-type {
+  margin-top: 0;
+}
+
+@media (width >= 900px) {
+  main > .section > div {
+    padding: 0 32px;
+  }
+}
+
+
+
+/* section anguilla hero */
+main .section.banner-anguilla-container {
+  margin: 1rem 0 0;
+  padding: 0;
+  background-image: url("../../icons/anguilla-banner-pic.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 600px;
+  position: relative;
+}
+
+main .section.banner-jimbaranbay-container {
+  margin: 1rem 0 0;
+  padding: 0;
+  background-image: url("../../icons/jimbaranbay-banner-pic.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 600px;
+  position: relative;
+}
+
+main .section.banner-anguilla-container .banner-anguilla-wrapper {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 45%;
+  position: absolute;
+  max-width: 100%;
+  bottom: 0;
+  z-index: 1;
+}
+
+main .section.banner-jimbaranbay-container .banner-jimbaranbay-wrapper {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 45%;
+  position: absolute;
+  max-width: 100%;
+  bottom: 0;
+  z-index: 1;
+}
+
+.banner-anguilla-wrapper .banner-anguilla {
+  height: 100%;
+  color: #fff;
+}
+
+.banner-jimbaranbay-wrapper .banner-jimbaranbay {
+  height: 100%;
+  color: #fff;
+}
+
+.banner-anguilla-wrapper .banner-anguilla > div > div > p {
+  font-family: neue-helvetica, helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .25em;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+.banner-jimbaranbay-wrapper .banner-jimbaranbay > div > div > p {
+  font-family: neue-helvetica, helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .25em;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+.banner-anguilla-wrapper .banner-anguilla em {
+  font-family: monotype-garamond, garamond, serif;
+  font-size: 1.125rem;
+  letter-spacing: .03em;
+  line-height: 1.5em;
+  text-transform: none;
+}
+
+.banner-jimbaranbay-wrapper .banner-jimbaranbay em {
+  font-family: monotype-garamond, garamond, serif;
+  font-size: 1.125rem;
+  letter-spacing: .03em;
+  line-height: 1.5em;
+  text-transform: none;
+}
+
+.banner-anguilla-wrapper .banner-anguilla h2 {
+  font-family: neue-helvetica-extra-light, helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  margin: 10px 0 23px;
+  text-transform: uppercase;
+  font-size: 2.75rem;
+  letter-spacing: .1364em;
+  line-height: 1.409em;
+}
+
+.banner-jimbaranbay-wrapper .banner-jimbaranbay h2 {
+  font-family: neue-helvetica-extra-light, helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  margin: 10px 0 23px;
+  text-transform: uppercase;
+  font-size: 2.75rem;
+  letter-spacing: .1364em;
+  line-height: 1.409em;
+}
+
+.banner-anguilla-wrapper .banner-anguilla h2::after {
+  background-color: #fff;
+  content: "";
+  display: block;
+  height: 2px;
+  margin: 0 auto;
+  position: relative;
+  top: 8px;
+  width: 40px;
+  box-sizing: border-box;
+}
+
+.banner-jimbaranbay-wrapper .banner-jimbaranbay h2::after {
+  background-color: #fff;
+  content: "";
+  display: block;
+  height: 2px;
+  margin: 0 auto;
+  position: relative;
+  top: 8px;
+  width: 40px;
+  box-sizing: border-box;
+}
+
+.banner-anguilla-wrapper .banner-anguilla u {
+  bottom: 30px;
+  left: 30px;
+  right: auto;
+  transform: none;
+  display: block;
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 2;
+
+  /* button style */
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  font-family: neue-helvetica-bold, helvetica, sans-serif;
+  font-size: .75rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .25em;
+  line-height: 1.33em;
+  padding: 0 0 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .3s ease-out, color .3s ease-out, border-color .3s ease-out;
+}
+
+.banner-jimbaranbay-wrapper .banner-jimbaranbay u {
+  bottom: 30px;
+  left: 30px;
+  right: auto;
+  transform: none;
+  display: block;
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 2;
+
+  /* button style */
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  font-family: neue-helvetica-bold, helvetica, sans-serif;
+  font-size: .75rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .25em;
+  line-height: 1.33em;
+  padding: 0 0 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .3s ease-out, color .3s ease-out, border-color .3s ease-out;
+}
+
+.banner-anguilla u:hover {
+  color: #999;
+}
+
+.banner-jimbaranbay u:hover {
+  color: #999;
+}
+
+main .section.banner-anguilla-container::after {
+  background: linear-gradient(180deg,transparent 0,#000);
+  height: 50%;
+  width: 100%;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+main .section.banner-jimbaranbay-container::after {
+  background: linear-gradient(180deg,transparent 0,#000);
+  height: 50%;
+  width: 100%;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+main .section.columns-container .default-content-wrapper {
+  max-width: 45%;
+}
+
+main .section.columns-container .default-content-wrapper > p {
+  font-family: monotype-garamond-normal, garamond, serif;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .0227272727em;
+  line-height: 1.5em;
+  text-align: center;
+}
+
+main .section.columns-container .columns-wrapper .featured-offer {
+  max-width: 930px;
+  margin: 5rem auto 0;
+  justify-content: center;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  padding: 0.3rem 0;
+  justify-self: center;
+}
+
+main .section.columns-container .columns-wrapper .featured-offer > div {
+    max-width: 930px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 2rem 3rem;
+}
+
+main .section.columns-container .columns-wrapper .featured-offer > div p {
+  font-family: neue-helvetica, helvetica, sans-serif;
+  font-size: .625rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .3em;
+  line-height: 1.3em;
+  text-transform: uppercase;
+}
+
+main .section.columns-container .columns-wrapper .featured-offer > div h2 {
+  font-family: neue-helvetica-bold, helvetica, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: .25em;
+    line-height: 1.3125em;
+    text-transform: uppercase;
+}
+
+main .section.columns-container .columns-wrapper .featured-offer > div h3 {
+  font-family: monotype-garamond-normal, garamond, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+  letter-spacing: .0277777778em;
+  line-height: 1.5em;
+  margin-bottom: 2rem;
+}
+
+main .section.columns-container .columns-wrapper .featured-offer > div h4 a:first-child {
+  margin-right: 2rem;
+  align-items: center;
+  background-color: #000;
+  border: 1px solid #000;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: neue-helvetica, helvetica, sans-serif;
+  font-size: .625rem;
+  font-style: normal;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: .3em;
+  line-height: 1.3em;
+  min-width: 130px;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: background-color .3s ease-out, color .3s ease-out, border-color .3s ease-out;
+  transition: background-color .3s ease-out, color .3s ease-out, border-color .3s ease-out;
+}
+
+main .section.columns-container .columns-wrapper .featured-offer > div h4 a {
+  font-family: neue-helvetica, helvetica, sans-serif;
+  font-size: .625rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .3em;
+  line-height: 1.3em;
+  text-transform: uppercase;
+  color: #000;
+  margin-right: 2rem;
+  align-items: center;
+  min-width: 130px;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: background-color .3s ease-out, color .3s ease-out, border-color .3s ease-out;
+  transition: background-color .3s ease-out, color .3s ease-out, border-color .3s ease-out;
+}
+
+
+@media(width <= 701px) {
+  #details--------all-offers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media(width <= 400px) {
+  #details--------all-offers {
+    text-align: left !important;
+  }
+}
+
+main .section.spotlight {
+  height: 90vh;
+  max-height: 1000px;
+  min-height: 600px;
+  background-image: url("../../icons/spotlight-pic.jpg");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+main .section.spotlight-jimbaranbay {
+  height: 90vh;
+  max-height: 1000px;
+  min-height: 600px;
+  background-image: url("../../icons/jimbaranbay-spotlight-pic.jpg");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+main .section.spotlight::after {
+  height: 28%;
+  width: 100%;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 0, #000);
+  box-sizing: border-box;
+}
+
+main .section.spotlight-jimbaranbay::after {
+  height: 28%;
+  width: 100%;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 0, #000);
+  box-sizing: border-box;
+}
+
+main .section.spotlight .default-content-wrapper {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 30px 30px;
+  display: block;
+  font-family: monotype-garamond-normal, garamond, serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .0278em;
+  line-height: 1.5em;
+  z-index: 2;
+}
+
+main .section.spotlight-jimbaranbay .default-content-wrapper {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 30px 30px;
+  display: block;
+  font-family: monotype-garamond-normal, garamond, serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .0278em;
+  line-height: 1.5em;
+  z-index: 2;
+}
+
+main .section.spotlight .default-content-wrapper p:first-child {
+  font-family: neue-helvetica-bold, helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .25em;
+  line-height: 1.3125em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+main .section.spotlight-jimbaranbay .default-content-wrapper p:first-child {
+  font-family: neue-helvetica-bold, helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .25em;
+  line-height: 1.3125em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+main .section.textbox {
+  margin-bottom: 70px;
+  text-align: center;
+  padding: 0;
+}
+main .section.textbox .default-content-wrapper {
+  text-align: center;
+  display: block;
+  unicode-bidi: isolate;
+  color: #000;
+}
+
+main .section.textbox .default-content-wrapper h2 {
+  margin-bottom: 40px;
+  font-family: neue-helvetica-extra-light, helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 200;
+  letter-spacing: .167em;
+  line-height: 1.29em;
+  text-transform: uppercase;
+}
+
+main .section.textbox .default-content-wrapper p {
+  font-family: monotype-garamond-normal, garamond, serif;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .023em;
+  line-height: 1.5em;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+main .section.highlight {
+  background-color: #fff;
+  padding: 0;
+  margin: 0 auto !important;
+  max-width: 930px;
+}
+
+main .section.highlight .columns-wrapper {
+  padding: 0;
+  width: 100%;
+}
+
+main .section.highlight .columns-wrapper .columns div {
+  padding-bottom: 60px;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  width: 100%;
+}
+
+main .section.highlight .columns-wrapper .columns div .columns-img-col {
+  width: 66%;
+  position: relative;
+}
+
+main .section.highlight .columns-wrapper .columns div div:nth-child(2) {
+  flex: none;
+  width: auto;
+  display: block;
+  width: 34%;
+  margin: 2rem;
+}
+
+main .section.highlight .columns-wrapper .columns div:nth-child(2) {
+  flex-direction: row-reverse;
+}
+
+main .section.highlight .columns-wrapper .columns div:nth-child(4) {
+  flex-direction: row-reverse;
+}
+
+main .section.highlight .columns-wrapper .columns div div p {
+  margin-bottom: 1rem;
+}
+
+main .section.highlight .columns-wrapper .columns div div strong {
+  position: relative;
+  display: inline-block;
+  font-family: neue-helvetica-bold, helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .25em;
+  line-height: 1.3125em;
+  margin-bottom: 30px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+main .section.highlight .columns-wrapper .columns div div p {
+  font-family: monotype-garamond-normal, garamond, serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .0277777778em;
+  line-height: 1.5em;
+  margin: 0 0 30px;
+}
+
+main .section.highlight .columns-wrapper .columns div div strong::after {
+  left: 0;
+  right: inherit;
+  bottom: -20px;
+  border-bottom: 2px solid;
+  content: "";
+  position: absolute;
+  width: 40px;
+  box-sizing: border-box;
+}
+
+
+@media (width >= 1701px) {
+  .banner-anguilla-wrapper .banner-anguilla h2 {
+    font-size: 4.5rem;
+    letter-spacing: .139em;
+    line-height: 1.389em;
+  }
+}
+
+@media (1701px >= width >= 961px) {
+  .banner-anguilla-wrapper .banner-anguilla h2 {
+    font-size: 2.75rem;
+    letter-spacing: .136em;
+    line-height: 1.409em;
+  }
+}
+
+@media (961px >= width >= 701px) {
+  .banner-anguilla-wrapper .banner-anguilla h2 {
+    font-size: 2rem;
+    letter-spacing: .156em;
+    line-height: 1.469em;
+  }
+
+  .banner-anguilla-wrapper .banner-anguilla p {
+    display: inline-block;
+  }
+
+  main .section.spotlight::after {
+    height: 38%;
+  }
+}
+
+@media (width <= 701px) {
+  main .section.highlight .columns-wrapper .columns div {
+    flex-direction: column;
+  }
+
+  main .section.highlight .columns-wrapper .columns div:nth-child(2) {
+    flex-direction: column;
+  }
+
+  main .section.highlight .columns-wrapper .columns div:nth-child(4) {
+    flex-direction: column;
+  }
+
+  main .section.highlight .columns-wrapper .columns div .columns-img-col {
+    width: 100%;
+  }
+
+  main .section.highlight .columns-wrapper .columns div div:nth-child(2) {
+    width: 100%;
+  }
+}

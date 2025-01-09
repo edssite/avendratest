@@ -12,7 +12,11 @@
 
  @import url('../blocks/custom/insurance-cards.css');
  @import url('../blocks/custom/pepsi/custom/*');
- @import url('./formshubspot.css');
+
+ @import url('../blocks/custom/pedialyte/custom/card-custom.css');
+ @import url('../blocks/custom/four-seasons/custom/styles.css');
+ @import url('../blocks/custom/four-seasons/custom/anchor-links.css');
+
 :root {
   /* colors */
   --background-color: white;
@@ -39,8 +43,10 @@
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
-  /* nav height */
+  /* nav heights */
   --nav-height: 64px;
+  --breadcrumbs-height: 34px;
+  --header-height: var(--nav-height);
 }
 
 /* fallback fonts */
@@ -81,6 +87,7 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  padding: 2rem;
 }
 
 body.appear {
@@ -88,7 +95,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  height: var(--header-height);
 }
 
 header .header,
@@ -99,6 +106,12 @@ footer .footer {
 header .header[data-block-status="loaded"],
 footer .footer[data-block-status="loaded"] {
   visibility: visible;
+}
+
+@media (width >= 900px) {
+  body[data-breadcrumbs] {
+    --header-height: calc(var(--nav-height) + var(--breadcrumbs-height));
+  }
 }
 
 h1,
@@ -209,7 +222,7 @@ button:disabled:hover {
 a.button.secondary,
 button.secondary {
   background-color: unset;
-  border: 2px solid currentcolor;
+  border: 2px solid var(--text-color);
   color: var(--text-color);
 }
 
@@ -254,7 +267,6 @@ main > .section:first-of-type {
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
 }
