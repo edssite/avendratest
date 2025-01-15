@@ -1,0 +1,27 @@
+.video-img > div > div > picture:first-of-type > img {
+  width: 10%;
+  position: absolute;
+  z-index: 1;
+  bottom: 22rem;
+  right: 32rem;
+}
+
+@media (width <= 900px) {
+  .video-img > div > div > picture:first-of-type > img {
+    width: 10%;
+    position: absolute;
+    z-index: 1;
+    top: 16rem;
+    right: 21rem;
+  }
+}
+
+@media (width <= 420px) {
+  .video-img > div > div > picture:first-of-type > img {
+    width: 10%;
+    position: absolute;
+    z-index: 1;
+    top: 10rem;
+    right: 10rem;
+  }
+}
