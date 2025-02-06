@@ -1,0 +1,20 @@
+.image-test-five, .image-test-three, .image-test-ninefive {
+    padding-top: 30px;
+}
+
+.image-test-five picture img{
+width: 500px;
+height: 500px;
+}
+
+.image-test-three picture img{
+    width: 300px;
+    height: 300px;
+}
+
+.image-test-ninefive picture img{
+    width: 900px;
+    height: 500px;
+}
+
+
